@@ -1,29 +1,36 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main(){
-	int a = 5;
-	string b = "A";
-	string &c = b;
-	int *x = &a;
-	string *y = &b;
-	int **z = &x;
+    int a = 5;
+    char b = 'A';
+    char &c = b;
 
-	cout << a << " " << b << " " << c << " " << x << " " << y << " " << z << "\n";
-	cout << &a << " " << &b <<  " " << &c << " " << &x << " " << &y << " " << &z << "\n";
+    int *x = &a;
+    char *y = &b;
+    int **z = &x;
 
-	c = 'F';
-	cout << a << " " << b << " " << c << " " << x << " " << y << " " << z << "\n";
-	
-	*y = 'W';
-	cout << a << " " << b << " " << c << " " << x << " " << y << " " << z << "\n";
+    cout << a << " " << b << " " << c << " "
+         << x << " " << (void*)y << " " << z << "\n";
 
-	*x = 6;
-	cout << a << " " << b << " " << c << " " << x << " " << y << " " << z << "\n";
+    cout << &a << " " << (void*)&b << " " << (void*)&c << " "
+         << &x << " " << &y << " " << &z << "\n";
 
-	**z =  7;
-	cout << a << " " << b << " " << c << " " << x << " " << y << " " << z << "\n";
+    c = 'F';
+    cout << a << " " << b << " " << c << " "
+         << x << " " << (void*)y << " " << z << "\n";
 
-	return 0;
+    *y = 'W';
+    cout << a << " " << b << " " << c << " "
+         << x << " " << (void*)y << " " << z << "\n";
+
+    *x = 6;
+    cout << a << " " << b << " " << c << " "
+         << x << " " << (void*)y << " " << z << "\n";
+
+    **z = 7;
+    cout << a << " " << b << " " << c << " "
+         << x << " " << (void*)y << " " << z << "\n";
+
+    return 0;
 }
